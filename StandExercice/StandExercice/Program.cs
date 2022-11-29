@@ -21,9 +21,9 @@ namespace StandExercice
             Moto m6 = new Moto(7000, 2022, "panigale V4s", "ducati", "João");
 
             //Carros
-            Carro c1 = new Carro(6000, 2014, "VelSatis", "Renault", "Moises");
-            Carro c2 = new Carro(10000, 2020, "Cyber Truck", "Tesla", "Elon Musk");
-            Carro c3 = new Carro(10000, 2021, "C4", "Citroen", "António");
+            Carro c1 = new Carro(6000, 2013, "VelSatis", "Renault", "Moises");
+            Carro c2 = new Carro(10000, 2020, "Cyber Truck", "Tesla", "Novo");
+            Carro c3 = new Carro(10000, 2021, "C4", "Citroen", "Novo");
             Carro c4 = new Carro(2000, 2014, "Megane2", "Renault", "Monica");
             Carro c5 = new Carro(15000, 1997, "C-180", "Mercedes-Benz", "Alexandre");
 
@@ -41,10 +41,17 @@ namespace StandExercice
             teste.carros.Add(c4);
             teste.carros.Add(c5);
 
-            Console.WriteLine(teste.NCarrosRenault());
-            Console.WriteLine(teste.MotaMaisCara());
-            Console.WriteLine(teste);
+            //Console.WriteLine(teste.NCarrosRenault());
+           // Console.WriteLine(teste.MotaMaisCara());
+           List<Carro> result= teste.MenosDe5Anos();
 
+            // Console.WriteLine(teste.ValorDoCarroMaisRecenteDosUsados());
+            List<Moto> resultMotas =teste.MotosABaixoDeX(int.Parse(Console.ReadLine()));
+
+            foreach (Moto item in resultMotas)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }

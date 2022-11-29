@@ -80,13 +80,66 @@ namespace StandExercice
             return stringfinal;
         }
 
-        //Sabendo que estamos em 2022 queremos um métodos que devolve uma Lista de Carros que tenham menos de 5 anos.
+        //Sabendo que estamos em 2022 queremos um métodos
+        ////que devolve uma Lista de Carros que tenham menos de 5 anos.
+        public List<Carro> MenosDe5Anos()
+        {
+            List<Carro> listaDeCarrosComMenosDe5Anos = new List<Carro>();
 
+            //ir buscar o ano actual
+            int anoActual = DateTime.Now.Year;
+
+            foreach (Carro carroASerTestado in carros)
+            {
+              
+                if (anoActual - carroASerTestado.Ano < 5)
+                {
+                    listaDeCarrosComMenosDe5Anos.Add(carroASerTestado);
+                    
+                }
+            }
+
+            return listaDeCarrosComMenosDe5Anos;
+        }
 
         //Um método que nos dá o preço do Carro mais recente, entre os usados.
+        public int ValorDoCarroMaisRecenteDosUsados()
+        {
+            int valor = 0;
+            int anoActual = DateTime.Now.Year;
+            int maisActual = 1000;
 
+            for (int i = 0; i < carros.Count; i++)
+            {
+                if (!carros[i].Dono.ToLower().Trim().Contains("novo"))
+                {
+                    if (anoActual-carros[i].Ano < maisActual)
+                    {
+                        maisActual = anoActual - carros[i].Ano;
+                        valor = carros[i].Valor;
+                    }
+                }
+            }
+
+            return  valor;
+        }
 
         //Um método que recebe um valor e devolve uma lista de Motos abaixo desse valor.
+        public List<Moto> MotosABaixoDeX(int valorSolicitado)
+        {
+            List<Moto> motasBaratas = new List<Moto>();
+
+            foreach (Moto item in motos)
+            {
+                if(item.Valor <= valorSolicitado)
+                {
+                    motasBaratas.Add(item);
+                }
+            }
+
+            return motasBaratas;
+        }
+        
         /** end region**/
 
     }

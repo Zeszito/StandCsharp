@@ -12,5 +12,9 @@ namespace StandExercice
         {
             this.Rodas = 2;
         }
+        public override string ToString()
+        {
+            return "A mota custa " + Valor + "euros, a marca é " + Marca + " e o modelo é " + Modelo + "\n";
+        }
     }
 }
